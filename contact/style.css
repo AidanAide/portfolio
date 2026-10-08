@@ -39,6 +39,24 @@ nav a:hover {
     padding-bottom: 0.1rem;
     background-color: oklch(80.992% 0.09748 280.771);
 }
+form input,
+form textarea,
+form button {
+    font: inherit;
+}
+form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1em;
+}
+form label {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+}
+form button {
+    grid-column: 1 / -1;
+}
 h1{
     font-size: 400%;
     line-height: 1.1;

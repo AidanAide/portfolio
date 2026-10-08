@@ -4,26 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Contact</h1>
     <nav>
         <ul>
             <li><a href="../index.html">Home</a></li>
+            <li><a href="../contact/index.html" class="current">Contact</a></li>
             <li><a href="../projects/index.html">Projects</a></li>
-            <li><a href="https://github.com/AidanAide" target="_blank">GitHub</a></li>
             <li><a href="../Resume/index.html">Resume</a></li>
+            <li><a href="https://github.com/AidanAide" target="_blank">GitHub</a></li>
         </ul>
     </nav>
+    <h1>Contact</h1>
     <form action="mailto:ais007@ucsd.edu" method="post" enctype="text/plain">
-        <label>Email:</label>
-        <input name="email" type="email">
+        <label>
+            Email:
+            <input name="email" type="email">
+        </label>
         
-        <label>Subject:</label>
-        <input name="subject">
+        <label>
+            Subject:
+            <input name="subject">
+        </label>
         
-        <label>Message:</label>
-        <textarea name="body"></textarea>
+        <label>
+            Message:
+            <textarea name="body"></textarea>
+        </label>
 
         <button>Send</button>
     </form>

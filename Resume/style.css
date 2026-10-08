@@ -10,10 +10,10 @@ body {
     margin-inline: auto;
     padding: 0 1rem;
 }
-ul {
+nav ul {
     display: contents;
 }
-li {
+nav li {
     display: contents;
 }
 nav {
@@ -63,4 +63,26 @@ h5 {
     margin: 0;
     line-height: 1.1;
     text-wrap: balance;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+main h1,
+.resume-wide {
+    grid-column: 1 / -1;
+}
+main article,
+main section {
+    border-top: 0.2em solid var(--color-accent);
+    padding: 1em;
+}
+main h2 {
+    border-bottom: 1px solid oklch(80% 3% 200);
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+main h3 {
+    margin-top: 1em;
 }
