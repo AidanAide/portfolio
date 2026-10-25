@@ -1,21 +1,28 @@
 [
     {
-        "title": "Food Processing Classes Across Grocery Stores",
-        "year": 2026,
-        "image": "images/stacked_percentage_bars.png",
-        "description": "An exploratory analysis of the different food processing classes across popular grocery stores.\n GroceryDB data used to analyze Target, Whole Foods, and Walmart sold food processing classes.                \n            "
-    },
-    {
-        "title": "Out-of-State Abortion Care Deception Chart",
+        "title": "Persuasive or Deceptive Visualization?",
         "year": 2026,
         "image": "images/travel_color_thresholds_support.png",
-        "description": "A deceptivee visualization surrounding out-of-state abortion care.\nData from Guttmacher Institute and U.S. Census Beaurea geographic definitions.                \n            "
+        "url": "projects/Project 2/project2_report.html",
+        "description": "An analysis of how visualization design choices can support or oppose a claim about out-of-state abortion care."
     },
     {
-        "title": "In-State Abortion Care 2020",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "year": 2026,
-        "image": "images/travel_divisions_opposition.png",
-        "description": "A visualization surrounding in-state abortion care by U.S. census division in 2020.\nData from Guttmacher Institute and U.S. Census Beaurea geographic definitions.                \n            "
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description":  "\n                \n            "
+    },
+    {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "year": 2026,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description":  "\n                \n            "
+    },
+    {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "year": 2026,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description":  "\n                \n            "
     },
     {
         "title": "Suscipit perferendis aliquid debitis?",

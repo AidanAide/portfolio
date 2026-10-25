@@ -91,7 +91,14 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         projectElement.classList.add('project');
 
         const heading = document.createElement(headingLevel);
-        heading.textContent = project.title;
+        if (project.url) {
+            const projectLink = document.createElement('a');
+            projectLink.href = new URL(project.url, import.meta.url).href;
+            projectLink.textContent = project.title;
+            heading.appendChild(projectLink);
+        } else {
+            heading.textContent = project.title;
+        }
         projectElement.appendChild(heading);
 
         if (Number.isInteger(project.year)) {
@@ -109,6 +116,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         description.textContent =
             project.description.trim() || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         projectElement.appendChild(description);
+
+        if (project.url) {
+            const projectLink = document.createElement('a');
+            projectLink.href = new URL(project.url, import.meta.url).href;
+            projectLink.textContent = 'View project report';
+            projectElement.appendChild(projectLink);
+        }
 
         containerElement.appendChild(projectElement);
     }
