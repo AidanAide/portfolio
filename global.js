@@ -67,3 +67,53 @@ for (let p of pages) {
         link.target = '_blank';
     }
 }
+
+export async function fetchJSON(url) {
+    try {
+        // Fetch the JSON data from the given URL
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch projects: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching or parsing JSON data:', error);
+        throw error;
+    }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    containerElement.innerHTML = '';
+
+    for (const project of projects) {
+        const projectElement = document.createElement('div');
+        projectElement.classList.add('project');
+
+        const heading = document.createElement(headingLevel);
+        heading.textContent = project.title;
+        projectElement.appendChild(heading);
+
+        if (Number.isInteger(project.year)) {
+            const year = document.createElement('p');
+            year.textContent = `Year: ${project.year}`;
+            projectElement.appendChild(year);
+        }
+
+        const image = document.createElement('img');
+        image.src = new URL(project.image, import.meta.url).href;
+        image.alt = project.title;
+        projectElement.appendChild(image);
+
+        const description = document.createElement('p');
+        description.textContent =
+            project.description.trim() || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+        projectElement.appendChild(description);
+
+        containerElement.appendChild(projectElement);
+    }
+}
+
+export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+}
