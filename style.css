@@ -59,6 +59,16 @@ nav a:hover {
     height: 12rem;
     object-fit: contain;
 }
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+.project-year {
+    margin-top: -0.5em;
+    color: color-mix(in oklch, currentColor, transparent 35%);
+    font-size: 0.9em;
+}
 #profile-stats dl {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
