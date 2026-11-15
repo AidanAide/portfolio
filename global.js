@@ -105,7 +105,14 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         const image = document.createElement('img');
         image.src = new URL(project.image, import.meta.url).href;
         image.alt = project.title;
-        projectElement.appendChild(image);
+        if (project.url) {
+            const imageLink = document.createElement('a');
+            imageLink.href = new URL(project.url, import.meta.url).href;
+            imageLink.appendChild(image);
+            projectElement.appendChild(imageLink);
+        } else {
+            projectElement.appendChild(image);
+        }
 
         const details = document.createElement('div');
         details.classList.add('project-details');
@@ -127,7 +134,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         if (project.url) {
             const projectLink = document.createElement('a');
             projectLink.href = new URL(project.url, import.meta.url).href;
-            projectLink.textContent = 'View project report';
+            projectLink.textContent = project.linkText || 'View project report';
             projectElement.appendChild(projectLink);
         }
 

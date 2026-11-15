@@ -7,6 +7,14 @@
         "description": "An analysis of how visualization design choices can support or oppose a claim about out-of-state abortion care."
     },
     {
+        "title": "Bikewatching",
+        "year": 2026,
+        "image": "images/bikewatching.png",
+        "url": "https://aidanaide.github.io/bikewatching/",
+        "linkText": "Visit website",
+        "description": "An interactive map of bike departures and arrivals around Boston, with patterns that change over time."
+    },
+    {
         "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
