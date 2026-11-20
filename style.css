@@ -149,6 +149,25 @@ nav a:hover {
     bottom: auto;
     height: 50vh;
 }
+#scrolly-2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+#scrolly-2 > * {
+    flex: 1;
+    min-width: 0;
+}
+#files-story {
+    position: relative;
+}
+#file-dot-plot {
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+    height: 75vh;
+    overflow-y: auto;
+}
 #stats + h2 {
     margin-top: 2rem;
 }
@@ -177,6 +196,16 @@ nav a:hover {
     .stats {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         row-gap: 0.75rem;
+    }
+}
+@media (max-width: 700px) {
+    #scrolly-2 {
+        display: block;
+    }
+    #file-dot-plot {
+        position: static;
+        height: 50vh;
+        margin-bottom: 1rem;
     }
 }
 #chart svg {

@@ -337,38 +337,43 @@ function onTimeSliderChange() {
 commitProgressSlider.addEventListener('input', onTimeSliderChange);
 onTimeSliderChange();
 
-d3.select('#scatter-story')
-  .selectAll('.step')
-  .data(commits, (d) => d.id)
-  .join('div')
-  .attr('class', 'step')
-  .each(function (commit, i) {
-    const step = d3.select(this);
-    step.selectAll('*').remove();
+function renderCommitStory(selector) {
+  d3.select(selector)
+    .selectAll('.step')
+    .data(commits, (d) => d.id)
+    .join('div')
+    .attr('class', 'step')
+    .each(function (commit, i) {
+      const step = d3.select(this);
+      step.selectAll('*').remove();
 
-    const paragraph = step.append('p');
-    paragraph
-      .append('span')
-      .text(`On ${commit.datetime.toLocaleString('en', {
-        dateStyle: 'full',
-        timeStyle: 'short',
-      })}, I made `);
-    paragraph
-      .append('a')
-      .attr('href', commit.url)
-      .attr('target', '_blank')
-      .attr('rel', 'noopener noreferrer')
-      .text(i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious');
-    paragraph.append('span').text(
-      `. I edited ${commit.totalLines} lines across ${
-        d3.rollups(
-          commit.lines,
-          (lines) => lines.length,
-          (line) => line.file,
-        ).length
-      } files. Then I looked over all I had made, and I saw that it was very good.`,
-    );
-  });
+      const paragraph = step.append('p');
+      paragraph
+        .append('span')
+        .text(`On ${commit.datetime.toLocaleString('en', {
+          dateStyle: 'full',
+          timeStyle: 'short',
+        })}, I made `);
+      paragraph
+        .append('a')
+        .attr('href', commit.url)
+        .attr('target', '_blank')
+        .attr('rel', 'noopener noreferrer')
+        .text(i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious');
+      paragraph.append('span').text(
+        `. I edited ${commit.totalLines} lines across ${
+          d3.rollups(
+            commit.lines,
+            (lines) => lines.length,
+            (line) => line.file,
+          ).length
+        } files. Then I looked over all I had made, and I saw that it was very good.`,
+      );
+    });
+}
+
+renderCommitStory('#scatter-story');
+renderCommitStory('#files-story');
 
 function onStepEnter(response) {
   const commit = response.element.__data__;
@@ -382,5 +387,13 @@ scroller
   .setup({
     container: '#scrolly-1',
     step: '#scrolly-1 .step',
+  })
+  .onStepEnter(onStepEnter);
+
+const filesScroller = scrollama();
+filesScroller
+  .setup({
+    container: '#scrolly-2',
+    step: '#scrolly-2 .step',
   })
   .onStepEnter(onStepEnter);
